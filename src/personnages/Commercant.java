@@ -2,12 +2,10 @@ package personnages;
 
 public class Commercant extends Humain {
 
-    // Constructeur
     public Commercant(String nom, int argent) {
         super(nom, "thé", argent);
     }
 
-    // Méthodes
     public int seFaireExtorquer() {
         int toutArgent = getArgent();
         perdreArgent(toutArgent);

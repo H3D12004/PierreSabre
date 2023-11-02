@@ -1,19 +1,16 @@
 package personnages;
 
 public class Humain {
-    // Attributs
     private String nom;
     private String boissonFavorite;
     private int argent;
 
-    // Constructeur
     public Humain(String nom, String boissonFavorite, int argent) {
         this.nom = nom;
         this.boissonFavorite = boissonFavorite;
         this.argent = argent;
     }
 
-    // Méthodes
     public void direBonjour() {
         parler("Bonjour ! Je m’appelle " + nom + " et j’aime boire du " + boissonFavorite + ".");
     }
@@ -49,7 +46,6 @@ public class Humain {
         System.out.println("(" + nom + ") - " + texte);
     }
 
-    // Accesseurs en lecture (getters)
     public String getNom() {
         return nom;
     }

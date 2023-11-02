@@ -1,27 +1,38 @@
 package personnages;
 
 public class Yakuza extends Humain {
-    // Attributs supplémentaires
     private String clan;
     private int reputation;
 
-    // Constructeur
     public Yakuza(String nom, String boissonFavorite, int argent, String clan) {
         super(nom, boissonFavorite, argent);
         this.clan = clan;
-        this.reputation = 0; // La réputation est initialisée à 0 par défaut
+        this.reputation = 0;
     }
-
-    // Méthodes
+    
     public void extorquer(Commercant victime) {
         int argentExtorque = victime.seFaireExtorquer();
         gagnerArgent(argentExtorque);
-        reputation += 1; // Augmente la réputation du Yakuza
+        reputation++;
         parler("J'ai extorqué " + argentExtorque + " sous du commerçant " + victime.getNom() + 
                ". Ma réputation est maintenant de " + reputation + ".");
     }
 
-    // Accesseurs en lecture (getters) pour les nouveaux attributs
+    public int perdre() {
+        int argentPerdu = getArgent();
+        perdreArgent(argentPerdu);
+        reputation--;
+        parler("J'ai perdu le duel et ma réputation est maintenant de " + reputation + ".");
+        parler("J’ai perdu le duel et mes " + argentPerdu + " sous, snif... J'ai déshonoré le clan de " + clan + ".");
+        return argentPerdu;
+    }
+
+    public void gagner(int gain) {
+        gagnerArgent(gain);
+        reputation++;
+        parler("J'ai gagné le duel et ma réputation est maintenant de " + reputation + ".");
+    }
+
     public String getClan() {
         return clan;
     }
